@@ -6,7 +6,7 @@ ENV SERVER_DIR="/usr/src/server"
 WORKDIR ${SERVER_DIR}
 
 # prepare nodejs dependencies
-RUN apt update && \
+RUN apt --allow-releaseinfo-change update && \
     apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates && \
     curl -sL https://deb.nodesource.com/setup_20.x | bash -
 
