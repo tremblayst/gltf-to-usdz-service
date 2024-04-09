@@ -2,7 +2,7 @@
 FROM python:2-slim-buster
 
 # the release tag of the usd repository
-ENV USD_VERSION="20.11"
+ENV USD_VERSION="24.03"
 
 # Update the environment path
 ENV HOME="/usr/src/app"
@@ -24,7 +24,7 @@ RUN apt-get -qq update && \
 	libglew-dev libxrandr-dev libxcursor-dev libxinerama-dev libxi-dev zlib1g-dev && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/PixarAnimationStudios/USD usdsrc && \
+RUN git clone https://github.com/PixarAnimationStudios/OpenUSD usdsrc && \
 	cd usdsrc && git checkout tags/v${USD_VERSION} && cd ../
 
 RUN python usdsrc/build_scripts/build_usd.py --no-usdview --build ${USD_BUILD_PATH} --src ${HOME}/USDgen/src ${HOME}/USDinst -v && \
