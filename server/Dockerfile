@@ -8,7 +8,7 @@ WORKDIR ${SERVER_DIR}
 # prepare nodejs dependencies
 RUN apt update && \
     apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates && \
-    curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    curl -sL https://deb.nodesource.com/setup_20.x | bash -
 
 # install nodejs
 RUN apt -y install nodejs
